@@ -1,0 +1,39 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: "settings"
+    label: "Podešavanja"
+    files:
+      - name: "profile"
+        label: "Profil"
+        file: "src/content/profile.json"
+        fields:
+          - { label: "Ime", name: "name", widget: "string" }
+          - { label: "Opis", name: "description", widget: "string" }
+          - { label: "Profilna Slika", name: "image", widget: "image" }
+          - label: "Grupe Linkova"
+            name: "linkGroups"
+            widget: "list"
+            fields:
+              - { label: "Naziv Grupe", name: "groupName", widget: "string" }
+              - { label: "Ikonica", name: "icon", widget: "select", options: ["video", "music", "image", "link", "book", "podcast", "code", "shop"] }
+              - label: "Linkovi"
+                name: "links"
+                widget: "list"
+                fields:
+                  - { label: "Tekst", name: "text", widget: "string" }
+                  - { label: "URL", name: "url", widget: "string" }
+          - label: "Društvene Mreže"
+            name: "social"
+            widget: "object"
+            fields:
+              - { label: "Twitter", name: "twitter", widget: "string", required: false }
+              - { label: "Instagram", name: "instagram", widget: "string", required: false }
+              - { label: "LinkedIn", name: "linkedin", widget: "string", required: false }
+              - { label: "GitHub", name: "github", widget: "string", required: false }
+              - { label: "Email", name: "email", widget: "string", required: false }
